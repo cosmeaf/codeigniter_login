@@ -18,7 +18,6 @@ class Auth_model extends CI_Model {
 		
 		$this->db->where('email', $email);
 		$this->db->where('password', sha1($password));
-		$this->db->where('status', 1);
 		$query = $this->db->get($this->users);
 
 		if($query->num_rows() == 1) {
@@ -26,6 +25,16 @@ class Auth_model extends CI_Model {
 		}
 
 		return false;
+	}
+
+	function validate(){
+		$email = $this->security->xss_clean($this->input->post('email'));
+		$password = $this->security->xss_clean($this->input->post('password'));
+		
+		$this->db->where('email', $email);
+		$this->db->where('password', sha1($password));
+		$query = $this->db->get($this->users);
+		return $query->result();
 	}
 }
 
