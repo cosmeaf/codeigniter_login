@@ -1,4 +1,4 @@
-# Project Logi Page in Codeigniter
+# Project Login Page in Codeigniter
 
 One Paragraph of project description goes here
 
