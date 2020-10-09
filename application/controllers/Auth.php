@@ -36,10 +36,13 @@ class Auth extends CI_Controller {
 				);
 				$this->session->set_userdata($userdata);
 				if($users->user_id === '1'){
+					$this->session->set_flashdata('success','Bem vindo');
 					redirect('dashboard');
 				}elseif($users->user_id === '2'){
+					$this->session->set_flashdata('success','Bem vindo');
 					redirect('dashboard/staff');
 				}else{
+					$this->session->set_flashdata('success','Bem vindo');
 					redirect('dashboard/author');
 				}
 			}else{
